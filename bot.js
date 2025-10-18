@@ -53,6 +53,22 @@ class WhatsAppEventBot {
       "developer",
       "devfest",
       "tech conference",
+      "networking",
+      "innovation",
+      "blockchain",
+      "web3",
+      "community event",
+      "competition",
+      "giveaway",
+      "prize",
+      "coding competition",
+      "tech giveaway",
+      "skill development",
+      "career fair",
+      "job fair",
+      "internship",
+      "recruitment drive",
+      "prizes",
     ];
 
     if (!fs.existsSync(this.downloadPath)) {
@@ -375,17 +391,17 @@ class WhatsAppEventBot {
 
       // Create formatted message
       const forwardMessage = `
-🎉 *EVENT ALERT*
+      🎉 *EVENT ALERT*
 
-📱 *From Group:* ${groupName}
-🔑 *Keywords:* ${keywords.join(", ")}
-⏰ *Time:* ${new Date().toLocaleString()}
+      📱 *From Group:* ${groupName}
+      🔑 *Keywords:* ${keywords.join(", ")}
+      ⏰ *Time:* ${new Date().toLocaleString()}
 
-📝 *Message:*
-${message || "No text content"}
+      📝 *Message:*
+      ${message || "No text content"}
 
----
-_Forwarded by Jeka<Hack> Monitor Bot_
+      ---
+      _Forwarded by Jeka<Hack> Monitor Bot_
       `.trim();
 
       // Send text message
@@ -467,7 +483,6 @@ _Forwarded by Jeka<Hack> Monitor Bot_
     console.log("\n🚫 Blacklisted groups:", this.blacklistedGroups);
   }
 
-  // Get WhatsApp Group ID helper
   async listGroups() {
     const chats = await this.client.getChats();
     const groups = chats.filter((chat) => chat.isGroup);
@@ -493,7 +508,7 @@ _Forwarded by Jeka<Hack> Monitor Bot_
     if (group) {
       this.whatsappGroupId = group.id._serialized;
       console.log(`✅ Forward group set to: ${group.name}`);
-      console.log(`   ID: ${group.id._serialized}`);
+      console.log(`ID: ${group.id._serialized}`);
       return true;
     } else {
       console.log(`❌ Group not found: ${groupName}`);
@@ -504,7 +519,7 @@ _Forwarded by Jeka<Hack> Monitor Bot_
 
 const emailConfig = {
   email: "etsunilag@gmail.com",
-  password: "Timothyonyea65452",
+  password: "",
   recipient: "timothyonyea@gmail.com",
 };
 
@@ -520,7 +535,6 @@ process.on("SIGINT", async () => {
   process.exit(0);
 });
 
-// ==================== OPTIONAL: ADD CUSTOM KEYWORDS ====================
 // Uncomment to add more keywords after bot starts
 /*
 setTimeout(() => {
@@ -532,7 +546,6 @@ setTimeout(() => {
 }, 5000);
 */
 
-// ==================== OPTIONAL: MANAGE BLACKLIST ====================
 // Uncomment to add/remove blacklisted groups dynamically
 /*
 setTimeout(() => {
@@ -542,16 +555,13 @@ setTimeout(() => {
 }, 5000);
 */
 
-// ==================== OPTIONAL: LIST ALL GROUPS ====================
 // Uncomment to see all your WhatsApp groups and their IDs
-// IMPORTANT: Wait at least 30 seconds after bot is ready
 /*
 setTimeout(async () => {
   await bot.listGroups();
-}, 30000); // 30 seconds - gives WhatsApp Web time to fully load
+}, 30000); // 30 seconds 
 */
 
-// ==================== OPTIONAL: SET GROUP BY NAME ====================
 // Uncomment to set forward group by searching for name
 /*
 setTimeout(async () => {
