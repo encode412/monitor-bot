@@ -1,9 +1,10 @@
 {
   "name": "whatsapp-event-bot",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "WhatsApp Event Monitor Bot",
+  "main": "bot.js",
   "scripts": {
+    "start": "node bot.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,7 +13,8 @@
   "dependencies": {
     "nodemailer": "^7.0.9",
     "qrcode-terminal": "^0.12.0",
+    "qrcode": "^1.5.3",
     "tesseract.js": "^6.0.1",
-    "whatsapp-web.js": "^1.34.1"
+    "whatsapp-web.js": "1.23.0"
   }
 }
