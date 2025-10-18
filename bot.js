@@ -7,11 +7,23 @@ const path = require("path");
 
 class WhatsAppEventBot {
   constructor(emailConfig, whatsappGroupId = null) {
+    const puppeteer = require("puppeteer");
+
     this.client = new Client({
       authStrategy: new LocalAuth(),
       puppeteer: {
         headless: true,
-        args: ["--no-sandbox"],
+        executablePath: puppeteer.executablePath(),
+        args: [
+          "--no-sandbox",
+          "--disable-setuid-sandbox",
+          "--disable-dev-shm-usage",
+          "--disable-extensions",
+          "--disable-gpu",
+          "--disable-software-rasterizer",
+          "--single-process",
+          "--no-zygote",
+        ],
       },
     });
 
