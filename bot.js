@@ -15,30 +15,12 @@ class WhatsAppEventBot {
           "--no-sandbox",
           "--disable-setuid-sandbox",
           "--disable-dev-shm-usage",
-          "--disable-accelerated-2d-canvas",
-          "--no-first-run",
-          "--no-zygote",
+          "--single-process",
           "--disable-gpu",
-          "--disable-software-rasterizer",
-          "--disable-extensions",
-          "--disable-background-networking",
-          "--disable-default-apps",
-          "--disable-sync",
-          "--disable-translate",
-          "--hide-scrollbars",
-          "--metrics-recording-only",
-          "--mute-audio",
-          "--no-default-browser-check",
-          "--safebrowsing-disable-auto-update",
-          "--disable-blink-features=AutomationControlled",
+          "--no-zygote",
         ],
-        // Critical: Increase timeouts for server environment
         timeout: 0,
-        protocolTimeout: 0,
       },
-      // Disable QR timeout to prevent disconnection
-      qrMaxRetries: 5,
-      // Important: Add this to prevent auto-logout
       webVersionCache: {
         type: "remote",
         remotePath:
